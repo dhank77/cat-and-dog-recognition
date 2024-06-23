@@ -1,4 +1,8 @@
 from inertia import render
+from .models import Images
 
 def index(request) :
-    return render(request, 'admin/index')
+    data = Images.objects.all(),
+    return render(request, 'admin/index', props={
+        'data': data
+    })
