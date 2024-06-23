@@ -5,11 +5,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { sidebarLink } from "@/constant/sidebar-link";
 import { Menu, Package2 } from "lucide-react";
 
 export default function SidebarMobile() {
+  const { path } = usePage().props;
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -31,7 +32,7 @@ export default function SidebarMobile() {
             <SheetClose asChild key={index}>
               <Link
                 href={value.route}
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                className={`${value.route == path ? 'text-primary': 'text-muted-foreground' } mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2`}
               >
                 <value.imageIcon className="h-5 w-5" />
                 {value.label}

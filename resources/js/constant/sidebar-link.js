@@ -3,17 +3,17 @@ import { Home, User, Settings } from "lucide-react";
 export const sidebarLink = [
   {
     imageIcon : Home,
-    route : '/admin',
+    route : '/admin/',
     label : 'Dashboard'
   },
   {
     imageIcon : User,
-    route : '/profil',
+    route : '/profil/',
     label : 'My Profile'
   },
   {
     imageIcon : Settings,
-    route : '/change-password',
+    route : '/change-password/',
     label : 'Change Password'
   },
 ]
