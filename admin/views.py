@@ -3,6 +3,6 @@ from .models import Images
 
 def index(request) :
     data = Images.objects.all(),
-    return render(request, 'admin/index', props={
+    return render(request, 'admin/index', {
         'data': data
     })

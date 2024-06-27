@@ -6,6 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.utils import timezone
 
 
 class AuthUser(models.Model):
@@ -29,4 +30,4 @@ class Images(models.Model):
     image = models.CharField(max_length=150, null=True)
     convert_file = models.CharField(max_length=150, null=True)
     convert_type = models.CharField(max_length=10, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now())
