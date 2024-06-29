@@ -26,7 +26,7 @@ class AuthUser(models.Model):
         db_table = 'auth_user'
 
 class Images(models.Model):
-    user_id = models.BigIntegerField(null=True)
+    user = models.ForeignKey(AuthUser, on_delete=models.CASCADE)
     image = models.CharField(max_length=150, null=True)
     convert_file = models.CharField(max_length=150, null=True)
     convert_type = models.CharField(max_length=10, null=True)

@@ -4,12 +4,12 @@ export const sidebarLink = [
   {
     imageIcon : Home,
     route : '/admin/',
-    label : 'Dashboard'
+    label : 'Predict Image'
   },
   {
     imageIcon : User,
     route : '/profil/',
-    label : 'My Profile'
+    label : 'Training Model'
   },
   {
     imageIcon : Settings,
