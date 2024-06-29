@@ -23,7 +23,6 @@ export default function Create({ errors }) {
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(image);
       router.post("/admin/predict/create", { image: image });
    };
 
@@ -50,8 +49,8 @@ export default function Create({ errors }) {
                      <div className="grid w-full max-w-md items-center gap-1.5">
                         <Label htmlFor="picture">Picture</Label>
                         <label
-                           for="picture"
-                           class="cursor-pointer bg-blue-400 text-white dark:bg-blue-700 dark:text-gray-200 py-2 px-4 rounded w-full"
+                           htmlFor="picture"
+                           className="cursor-pointer bg-blue-400 text-white dark:bg-blue-700 dark:text-gray-200 py-2 px-4 rounded w-full"
                         >
                            Choose File {fileName && `| (${fileName})`}
                         </label>

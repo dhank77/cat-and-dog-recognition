@@ -1,10 +1,12 @@
-from inertia import render
+from inertia import render, share
 from admin.models import Images
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from .validation import ImageForm
 from django.core.files.storage import FileSystemStorage
 from django.utils import timezone
+from django.conf import settings
 
+import os
 
 def index(request) :
     data = Images.objects.all(),
@@ -31,8 +33,10 @@ def create(request) :
                 user_id = request.user.id
             )
             image.save()
-
-            return redirect('/admin')
+            request.session['type'] = "success"
+            request.session['messages'] = "Success add image"
+            
+            return redirect('/admin/predict')
         else :
             return render(request, 'admin/predict/create', props={
                 'errors' : serializer.errors
@@ -41,12 +45,16 @@ def create(request) :
         return render(request, 'admin/predict/create')
 
 def delete(request, id) :
-    image = Images.objects.get(id=id)
-    if(image.delete()) :
-        flash = {
-            'type' : 'success',
-            'messages' : 'Success delete image'
-        }
-        return redirect('/admin', props={
-            'flash' : flash
-        })
+    image = get_object_or_404(Images, id=id) 
+    image_path = os.path.join(settings.MEDIA_ROOT, image.image)
+    if os.path.exists(image_path):
+        os.remove(image_path)
+        
+    if image.delete() :
+        request.session['type'] = "success"
+        request.session['messages'] = "Success delete image"
+    else :
+        request.session['type'] = "error"
+        request.session['messages'] = "Error delete image"
+         
+    return redirect('/admin/predict')
