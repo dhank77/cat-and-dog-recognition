@@ -24,7 +24,7 @@ export default function Create({ errors }) {
    const handleSubmit = (event) => {
       event.preventDefault();
       console.log(image);
-      router.post("/admin/create", { image: image });
+      router.post("/admin/predict/create", { image: image });
    };
 
    return (
@@ -35,8 +35,8 @@ export default function Create({ errors }) {
                   Recognation
                </h1>
             </div>
-            <Button variant="secondary">
-               <Link href="/admin">Back</Link>
+            <Button variant="secondary" asChild>
+               <Link href="/admin/predict">Back</Link>
             </Button>
          </div>
 
