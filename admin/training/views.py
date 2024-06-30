@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 from django.conf import settings
-
+from inertia import render
 from skimage.io import imread
 from skimage.transform import resize
 from sklearn.model_selection import train_test_split, GridSearchCV
@@ -14,7 +14,10 @@ from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 def index(request):
-    pass
+    categories = ["cat", "dog"]
+    return render(request, 'admin/training/index', props={
+        'categories' : categories
+    })
 
 def run(request) :
     input_dir = f"{settings.BASE_DIR}/datasets/"

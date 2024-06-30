@@ -12,7 +12,7 @@ export default function Sidebar() {
             <Link
               key={index}
               href={value.route}
-              className={`${value.route == path ? 'text-primary hover:text-muted-foreground': 'text-muted-foreground hover:text-primary' } flex items-center gap-3 rounded-lg px-3 py-2  transition-all`}
+              className={`${(value.route != "/admin/" ? path.includes(value.route) && value.route != "/admin/" : path == value.route) ? 'text-primary hover:text-muted-foreground': 'text-muted-foreground hover:text-primary' } flex items-center gap-3 rounded-lg px-3 py-2  transition-all`}
             >
               <IconComponent className="h-5 w-5" />
               {value.label}

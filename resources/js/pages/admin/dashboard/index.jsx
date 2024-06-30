@@ -1,6 +1,6 @@
 import Authenticated from "@/layouts/authenticated";
 
-export default function Index({ data }) {
+export default function Index() {
 
 
    return (

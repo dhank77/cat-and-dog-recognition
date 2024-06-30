@@ -13,7 +13,7 @@ export const sidebarLink = [
   },
   {
     imageIcon : Cpu,
-    route : '/admin/training',
+    route : '/admin/training/',
     label : 'Training Model'
   },
   {
