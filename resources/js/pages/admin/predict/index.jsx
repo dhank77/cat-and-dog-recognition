@@ -35,6 +35,7 @@ export default function Index({ data }) {
                   <TableHead className="w-[50px]">No.</TableHead>
                   <TableHead>User</TableHead>
                   <TableHead>Image</TableHead>
+                  <TableHead>Result</TableHead>
                   <TableHead>Created At</TableHead>
                   <TableHead className="text-right">#</TableHead>
                </TableRow>
@@ -53,6 +54,7 @@ export default function Index({ data }) {
                            <TableCell>
                               <img src={`/media/${value.image}`} className="w-20 h-14 lg:w-60 lg:h-40" />
                            </TableCell>
+                           <TableCell>{value.convert_file.toUpperCase()}</TableCell>
                            <TableCell>{formatDate(value.created_at)}</TableCell>
                            <TableCell className="text-right">
                               <Button variant="destructive" size="sm" onClick={() => deleteData(value.id)}>Delete</Button>
