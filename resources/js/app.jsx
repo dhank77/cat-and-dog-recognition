@@ -1,6 +1,5 @@
 import '../css/app.css'
 
-import React from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import { createInertiaApp } from "@inertiajs/react";
 import axios from "axios";

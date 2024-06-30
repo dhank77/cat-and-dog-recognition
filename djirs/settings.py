@@ -143,6 +143,10 @@ MEDIA_ROOT = BASE_DIR / "media"
 CSRF_HEADER_NAME = 'HTTP_X_XSRF_TOKEN'
 CSRF_COOKIE_NAME = 'XSRF-TOKEN'
 
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/admin'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

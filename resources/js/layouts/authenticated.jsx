@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Sidebar from "@/components/partials/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
-import { useEffect } from "react";
 
 export default function Authenticated({ children }) {
    const { flash } = usePage().props;

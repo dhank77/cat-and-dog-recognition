@@ -1,19 +1,22 @@
-from inertia import render, share
+from inertia import render
 from admin.models import Images
 from django.shortcuts import redirect, get_object_or_404
 from .validation import ImageForm
 from django.core.files.storage import FileSystemStorage
 from django.utils import timezone
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 import os
 
+@login_required
 def index(request) :
     data = Images.objects.all(),
     return render(request, 'admin/predict/index', {
         'data': data
     })
 
+@login_required
 def create(request) :
     if request.method == 'POST' :
         data = request.POST.dict()
@@ -44,6 +47,7 @@ def create(request) :
     else :
         return render(request, 'admin/predict/create')
 
+@login_required
 def delete(request, id) :
     image = get_object_or_404(Images, id=id) 
     image_path = os.path.join(settings.MEDIA_ROOT, image.image)
